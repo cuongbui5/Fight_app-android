@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp">
+
+
+            <android.widget.SearchView
+                android:id="@+id/svSearchAirport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:queryHint="Tìm sân bay"
+                android:background="@drawable/search_bg"
+                android:iconifiedByDefault="false"
+
+                />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvAirport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="700dp"
+
+            />
+
+
+
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

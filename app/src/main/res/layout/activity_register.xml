@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/backgroundimage"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="80dp"
+    android:paddingHorizontal="20dp"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:cardCornerRadius="24dp"
+        android:layout_gravity="center"
+
+
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="20dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/white"
+
+
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:fontFamily="@font/manrope_light"
+                    android:textStyle="bold"
+                    android:textSize="35dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="18dp"
+                    android:fontFamily="@font/manrope_light"
+                    android:textColor="@color/gray"
+                    android:text="Let's book a travel!"/>
+                <EditText
+                    android:id="@+id/editUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/manrope_light"
+                    android:maxLines="1"
+                    android:drawableStart="@drawable/ic_name"
+                    android:drawableTint="@color/primary"
+                    android:drawablePadding="10dp"
+                    android:hint="Username"/>
+                <EditText
+                    android:id="@+id/editPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:inputType="textPassword"
+                    android:drawableStart="@drawable/ic_pw"
+                    android:drawableTint="@color/primary"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/manrope_light"
+                    android:hint="Password"/>
+                <EditText
+                    android:id="@+id/editPasswordConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginTop="20dp"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/manrope_light"
+                    android:drawableStart="@drawable/ic_pw"
+                    android:drawableTint="@color/primary"
+                    android:drawablePadding="10dp"
+                    android:hint="Password Confirm"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/manrope_light"
+                        android:text="Do you have an account?"/>
+                    <TextView
+                        android:id="@+id/tvSignin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary"
+                        android:fontFamily="@font/manrope_light"
+                        android:text=" Sign in"/>
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/manrope_light"
+                android:text="Sign up"
+                android:textColor="@color/white"
+
+                android:layout_alignParentBottom="true"
+
+
+                />
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

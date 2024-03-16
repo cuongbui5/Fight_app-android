@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/contentHome"
+    android:background="@drawable/plane_home"
+    android:paddingHorizontal="20dp"
+    android:gravity="top"
+    >
+
+
+
+
+    <LinearLayout
+        android:id="@+id/containerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+
+        >
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPageFlight"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_page_bg_click"
+            android:fontFamily="@font/manrope_medium"
+            android:text="Tra cứu lịch bay"
+            android:textColor="@color/primary"
+
+          />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnPageBooking"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_page_bg"
+            android:fontFamily="@font/manrope_medium"
+            android:text="Đặt vé"
+            android:textColor="@color/white"
+           />
+
+    </LinearLayout>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        app:cardCornerRadius="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/containerButton"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="30dp"
+            android:minHeight="400dp"
+
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/manrope_bold"
+                android:text="Từ:"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editDepartureAirport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:drawableStart="@drawable/ic_flight_takeoff_24"
+                android:drawableTint="@color/gray"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/manrope_medium"
+                android:hint="Hồng Không (HKG)"
+                android:textSize="16sp"
+
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/manrope_bold"
+                android:text="Đến:"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editArrivalAirport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:drawableStart="@drawable/ic_flight_land_24"
+                android:drawableTint="@color/gray"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/manrope_medium"
+                android:hint="Hà Nội (HAN)"
+                android:textSize="16sp"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/manrope_bold"
+                android:text="Ngày đi:"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/editDepartureDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:drawableStart="@drawable/ic_calendar_month_24"
+                android:drawableTint="@color/gray"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/manrope_medium"
+                android:hint="9 T3 2024"
+                android:textSize="16sp"
+
+                />
+
+            <TextView
+                android:id="@+id/tvFareClass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/manrope_bold"
+                android:text="Hạng ghế:"
+                android:textColor="@color/primary"
+                android:textSize="16sp"
+
+
+                />
+
+            <EditText
+                android:id="@+id/editFareClass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cursorVisible="false"
+                android:drawableStart="@drawable/ic_seat"
+                android:drawableTint="@color/gray"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/manrope_medium"
+                android:hint="Economy"
+                android:textSize="16sp"
+
+                />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/manrope_bold"
+                android:text="Tra cứu"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSeeBooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/manrope_bold"
+        android:text="Xem vé đã đặt"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/cvAirportItem"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+   >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TP HCM, Việt Nam"
+            android:fontFamily="@font/manrope_bold"
+            android:textSize="16sp"
+
+            />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SGN - Sân bay Tân Sơn Nhất"
+            android:fontFamily="@font/manrope_light"
+            android:textSize="14sp"
+
+            />
+
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
+

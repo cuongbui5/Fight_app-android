@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomSheetFareDetail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chi tiết vé"
+            android:textSize="20sp"
+            android:fontFamily="@font/manrope_bold"
+            android:gravity="center"
+            android:padding="10dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray2"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="20dp"
+            android:paddingHorizontal="40dp">
+            <ImageView
+                android:id="@+id/ivAirlineDetail"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icon_airline"
+                />
+
+            <TextView
+                android:id="@+id/tvAirlineNameDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VietNam Airlines"
+                android:layout_gravity="center"
+                android:textSize="14dp"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/manrope_light"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/tvFlightCodeDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VN-6028"
+                android:textSize="14dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:fontFamily="@font/manrope_light"
+                android:gravity="end"/>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
+
+
+
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/tvDepartureAirportCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ha Noi"
+                    android:fontFamily="@font/manrope_light"
+                    android:textSize="14sp"
+
+                    android:layout_gravity="center"
+                    />
+                <TextView
+                    android:id="@+id/tvDepartureAirportFareDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HAN"
+                    android:textSize="36dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/manrope_bold"
+                    />
+            </LinearLayout>
+
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_next"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="10dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvArrivalAirportCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ha Noi"
+                    android:fontFamily="@font/manrope_light"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+
+                    />
+                <TextView
+                    android:id="@+id/tvArrivalAirportFareDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SGN"
+                    android:textSize="36dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/manrope_bold"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="20dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="vertical"
+                android:gravity=""
+                >
+
+                <TextView
+                    android:id="@+id/bookingIdLabelTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mã vé"
+                    android:fontFamily="@font/manrope_light"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tvFareId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="1132493"
+                    android:fontFamily="@font/manrope_medium"
+                    android:textSize="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="5dp"
+                >
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mã hãng hàng không"
+                    android:fontFamily="@font/manrope_light"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/tvAirlineCodeDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RNDV256"
+                    android:fontFamily="@font/manrope_medium"
+                    android:textSize="16dp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="20dp"
+            >
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ngày khởi hành"
+                    android:fontFamily="@font/manrope_light"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/tvDepartureDateFareDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="06/04/2024"
+                    android:fontFamily="@font/manrope_medium"
+                    android:textSize="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giờ bay"
+
+                    android:fontFamily="@font/manrope_light"
+
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/tvDepartureTimeFareDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="07:00"
+                    android:fontFamily="@font/manrope_medium"
+                    android:textSize="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/manrope_light"
+                    android:text="Giờ hạ cánh"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:id="@+id/tvArrivalTimeFareDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="09:15"
+                    android:fontFamily="@font/manrope_medium"
+                    android:textSize="16dp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="20dp"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số điểm dừng"
+                    android:fontFamily="@font/manrope_light"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tvStopDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/manrope_medium"
+                    android:text="1"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                >
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại tàu bay"
+                    android:fontFamily="@font/manrope_light"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tvAircraftTypeFareDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/manrope_medium"
+                    android:text="B52"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                >
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hạng vé"
+                    android:fontFamily="@font/manrope_light"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tvFareClassDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/manrope_medium"
+                    android:text="Economy"
+                    android:textSize="16dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giá vé"
+                    android:fontFamily="@font/manrope_light"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tvPriceDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/manrope_bold"
+                    android:textColor="@color/red"
+                    android:text="15000000 VND"
+
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnBooking"
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/manrope_bold"
+                android:text="Đặt vé"
+                android:textColor="@color/white"
+
+
+                />
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+

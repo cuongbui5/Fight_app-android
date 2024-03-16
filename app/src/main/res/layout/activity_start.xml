@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@drawable/backgroundimage"
+    android:paddingHorizontal="20dp"
+    android:paddingBottom="30dp"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:cardCornerRadius="24dp"
+        android:layout_gravity="bottom"
+   >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="40dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From anywhere to any where"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/black_dark"
+            android:fontFamily="@font/manrope_bold"
+            android:layout_marginBottom="10dp"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/manrope_light"
+            android:text="Long-term rental of villas with a guarantee of conformity with photographs" />
+
+
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/btnStart"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:text="Get Started"
+           android:textColor="@color/white"
+           android:fontFamily="@font/manrope_bold"
+           android:paddingHorizontal="30dp"
+           android:paddingVertical="10dp"
+           android:background="@drawable/button_background"
+           />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+</LinearLayout>
