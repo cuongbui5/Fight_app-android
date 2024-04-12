@@ -28,6 +28,7 @@ import com.example.fightandroid.listener.FareItemClickListener;
 import com.example.fightandroid.model.Fare;
 import com.example.fightandroid.model.Flight;
 import com.example.fightandroid.response.ListFareResponse;
+import com.example.fightandroid.util.Constant;
 import com.example.fightandroid.util.Helper;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -48,8 +49,6 @@ public class FareActivity extends BaseActivity implements FareItemClickListener 
     private ImageView ivAirlineDetail;
     private TextView tvArrivalAirportCity,tvDepartureAirportCity, tvAirlineNameDetail, tvFlightCodeDetail, tvDepartureAirportFareDetail, tvArrivalAirportFareDetail, tvFareId, tvAirlineCodeDetail, tvDepartureDateFareDetail, tvDepartureTimeFareDetail, tvArrivalTimeFareDetail, tvStopDetail, tvAircraftTypeFareDetail, tvFareClassDetail, tvPriceDetail, btnBooking,tvTitle;
     private int pageCurrent=1;
-    private int size=5;
-    private String sort="price";
     private int totalPage=0;
     private Long arrivalAirportId,departureAirportId;
 
@@ -59,8 +58,28 @@ public class FareActivity extends BaseActivity implements FareItemClickListener 
 
 
 
+
     @Override
     public void setUp() {
+
+    }
+
+    @Override
+    public void initEvents() {
+        btnBack.setOnClickListener(v -> finish());
+        rcvFare.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                LinearLayoutManager layoutManager = (LinearLayoutManager) rcvFare.getLayoutManager();
+                int visibleItemCount = layoutManager.getChildCount();
+                int totalItemCount = layoutManager.getItemCount();
+                int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+                if (!rcvFare.canScrollVertically(1)&& firstVisibleItemPosition + visibleItemCount >= totalItemCount && pageCurrent < totalPage) {
+                    loadMoreData();
+                }
+            }
+        });
 
     }
 
@@ -74,13 +93,14 @@ public class FareActivity extends BaseActivity implements FareItemClickListener 
     private void getAllFares() {
         Dialog dialog= Helper.createDialogLoad(this);
         dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
         ApiClientInstance.getInstance(this).getAllFares(arrivalAirportId,
                 departureAirportId,
                 departureDate,
                 fareClass,
                 pageCurrent,
-                size,
-                sort).enqueue(new Callback<ListFareResponse>() {
+                Constant.SIZE,
+                Constant.SORT).enqueue(new Callback<ListFareResponse>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onResponse(Call<ListFareResponse> call, Response<ListFareResponse> response) {
@@ -118,20 +138,7 @@ public class FareActivity extends BaseActivity implements FareItemClickListener 
         rcvFare.setLayoutManager(new LinearLayoutManager(this));
         fareAdapter=new FareAdapter(fareList,this);
         rcvFare.setAdapter(fareAdapter);
-        btnBack.setOnClickListener(v -> finish());
-        rcvFare.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                LinearLayoutManager layoutManager = (LinearLayoutManager) rcvFare.getLayoutManager();
-                int visibleItemCount = layoutManager.getChildCount();
-                int totalItemCount = layoutManager.getItemCount();
-                int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-                if (!rcvFare.canScrollVertically(1)&& firstVisibleItemPosition + visibleItemCount >= totalItemCount && pageCurrent < totalPage) {
-                    loadMoreData();
-                }
-            }
-        });
+
 
 
     }

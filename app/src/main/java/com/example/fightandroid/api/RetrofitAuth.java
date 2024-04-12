@@ -13,7 +13,7 @@ public class RetrofitAuth {
 
     private RetrofitAuth() {
         retrofit = new Retrofit.Builder()
-                .baseUrl(Constant.BASE_URL)
+                .baseUrl(RetrofitConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

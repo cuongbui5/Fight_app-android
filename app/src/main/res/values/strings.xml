@@ -2,4 +2,11 @@
     <string name="app_name">FightAndroid</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in">Sign in</string>
+    <string name="do_you_have_an_account">Do you have an account?</string>
+    <string name="password_confirm">Password Confirm</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="let_s_book_a_travel">Let\'s book a travel!</string>
 </resources>

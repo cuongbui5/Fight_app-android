@@ -65,7 +65,7 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
     private int SET_AIRPORT;
     private ImageView ivAirlineBookingDetail;
 
-    private String page="flight";
+    private String page=Constant.FLIGHT_PAGE;
 
     private Airport departureAirport,arrivalAirport;
     private String departureDate="";
@@ -82,11 +82,13 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
 
 
 
-    private void openBottomSheetDialogListBooking() {
+    private void openListBookingDialog() {
         View view=getLayoutInflater().inflate(R.layout.bottom_sheet_booking_list,null);
         BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(view);
         bottomSheetDialog.show();
+        BottomSheetBehavior bottomSheetBehavior=BottomSheetBehavior.from((View)view.getParent());
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         rcvListBooking=view.findViewById(R.id.rcvListBooking);
         rcvListBooking.setLayoutManager(new LinearLayoutManager(this));
         Button btnClose=view.findViewById(R.id.btnClose);
@@ -193,11 +195,13 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
         });
     }
 
-    private void openBottomSheetFareClass() {
+    private void openFareClassDialog() {
         View view=getLayoutInflater().inflate(R.layout.bottom_sheet_fare_class,null);
         final BottomSheetDialog bottomSheetDialog=new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(view);
         bottomSheetDialog.show();
+        BottomSheetBehavior bottomSheetBehavior=BottomSheetBehavior.from((View)view.getParent());
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         RadioGroup rgFare=view.findViewById(R.id.rgFare);
         Button btnChooseFare=view.findViewById(R.id.btnChooseFare);
         btnChooseFare.setOnClickListener(v -> {
@@ -238,36 +242,38 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
         }
     }
 
-    private static String removeSpace(String input) {
-        return input.replaceAll("\\s+", "");
-    }
+
 
 
     private void openDateDialog() {
 
         Calendar calendar=Calendar.getInstance();
-
+        @SuppressLint("SetTextI18n")
         DatePickerDialog dialog=new DatePickerDialog(AppActivity.this, (view, year, month, dayOfMonth) -> {
             int m=month+1;
-            String monthStr = m+"";
-            String dayStr = dayOfMonth+"";
+            String monthStr;
+            String dayStr;
             if(m<10){
                 monthStr="0"+m;
+            }else {
+                monthStr = String.valueOf(m);
             }
 
             if(dayOfMonth<10){
                 dayStr="0"+dayOfMonth;
+            }else {
+                dayStr = String.valueOf(dayOfMonth);
             }
             departureDate=year+"-"+monthStr+"-"+dayStr;
             editDepartureDate.setText(dayOfMonth+" T"+m+" "+year);
-
-        },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH));
+            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         dialog.show();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void setUp() {
-        if(Objects.equals(page, "flight")){
+        if(Objects.equals(page, Constant.FLIGHT_PAGE)){
             tvFareClass.setVisibility(View.GONE);
             editFareClass.setVisibility(View.GONE);
             btnPageFlight.setBackgroundResource(R.drawable.btn_page_bg_click);
@@ -287,26 +293,17 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
     }
 
     @Override
-    public void initComponents() {
-        btnFilter=findViewById(R.id.btnFilter);
-        btnPageBooking=findViewById(R.id.btnPageBooking);
-        btnPageFlight=findViewById(R.id.btnPageFlight);
-        editArrivalAirport=findViewById(R.id.editArrivalAirport);
-        editDepartureAirport=findViewById(R.id.editDepartureAirport);
-        editDepartureDate=findViewById(R.id.editDepartureDate);
-        editFareClass=findViewById(R.id.editFareClass);
-        tvFareClass=findViewById(R.id.tvFareClass);
-        btnSeeBooking=findViewById(R.id.btnSeeBooking);
+    public void initEvents() {
         btnPageFlight.setOnClickListener(v->{
-            if(!Objects.equals(page, "flight")){
-                page="flight";
+            if(!Objects.equals(page,Constant.FLIGHT_PAGE )){
+                page=Constant.FLIGHT_PAGE;
                 setUp();
             }
 
         });
         btnPageBooking.setOnClickListener(v->{
-            if(!Objects.equals(page, "booking")){
-                page="booking";
+            if(!Objects.equals(page, Constant.BOOKING_PAGE)){
+                page=Constant.BOOKING_PAGE;
                 setUp();
             }
 
@@ -323,7 +320,7 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
         });
         editDepartureDate.setOnClickListener(v -> openDateDialog());
         editFareClass.setOnClickListener(v -> {
-            openBottomSheetFareClass();
+            openFareClassDialog();
 
         });
         btnFilter.setOnClickListener(v -> {
@@ -337,7 +334,7 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
                 Helper.showDialog("Bạn chưa chọn ngày đi!",AppActivity.this);
                 return;
             }
-            if(Objects.equals(page, "flight")){
+            if(Objects.equals(page, Constant.FLIGHT_PAGE)){
                 intent = new Intent(AppActivity.this, FlightActivity.class);
                 intent.putExtra("arrivalAirportId",arrivalAirport.getId());
                 intent.putExtra("departureAirportId",departureAirport.getId());
@@ -348,7 +345,7 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
                 intent.putExtra("arrivalAirportId",arrivalAirport.getId());
                 intent.putExtra("departureAirportId",departureAirport.getId());
                 intent.putExtra("departureDate",departureDate);
-                intent.putExtra("fareClass",removeSpace(editFareClass.getText().toString()));
+                intent.putExtra("fareClass",Helper.removeSpace(editFareClass.getText().toString()));
                 if(editFareClass.getText().toString().equals("")){
                     Helper.showDialog("Bạn chưa chọn hạng ghế!",AppActivity.this);
                     return;
@@ -359,8 +356,25 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
             startActivity(intent);
 
         });
-        btnSeeBooking.setOnClickListener(v -> openBottomSheetDialogListBooking());
+        btnSeeBooking.setOnClickListener(v -> openListBookingDialog());
+
     }
+
+    @Override
+    public void initComponents() {
+        btnFilter=findViewById(R.id.btnFilter);
+        btnPageBooking=findViewById(R.id.btnPageBooking);
+        btnPageFlight=findViewById(R.id.btnPageFlight);
+        editArrivalAirport=findViewById(R.id.editArrivalAirport);
+        editDepartureAirport=findViewById(R.id.editDepartureAirport);
+        editDepartureDate=findViewById(R.id.editDepartureDate);
+        editFareClass=findViewById(R.id.editFareClass);
+        tvFareClass=findViewById(R.id.tvFareClass);
+        btnSeeBooking=findViewById(R.id.btnSeeBooking);
+
+    }
+
+
 
     @Override
     public void getDataFromIntent() {
@@ -415,7 +429,7 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
         Picasso.get().load(flight.getAirline().getLogoUrl()).into(ivAirlineBookingDetail);
         tvAirlineNameBooking.setText(flight.getAirline().getName());
         tvDurationBooking.setText(flight.getDuration()+" phút");
-        DateTimeFormatter formatter = null;
+
         tvFareClassBooking.setText(fare.getFareClass());
         tvArrivalAirportCityBooking.setText(flight.getArrivalAirport().getCity());
         tvDepartureAirportCityBooking.setText(flight.getDepartureAirport().getCity());
@@ -426,9 +440,8 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
         tvPassengerName.setText(booking.getPassengerInfo().getFirstName()+" "+booking.getPassengerInfo().getLastName());
         tvPassengerMail.setText(booking.getPassengerInfo().getEmail());
         tvPassengerPhone.setText(booking.getPassengerInfo().getNumberPhone());
-
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
             tvDepartureDateBooking.setText(LocalDateTime.parse(flight.getDepartureDate(),formatter).toLocalDate().toString());
             tvArrivalDateBooking.setText(LocalDateTime.parse(flight.getArrivalDate(),formatter).toLocalDate().toString());
             tvDepartureTimeBooking.setText(LocalDateTime.parse(flight.getDepartureDate(),formatter).toLocalTime().toString());
@@ -444,14 +457,6 @@ public class AppActivity extends BaseActivity implements AirportItemClickListene
         }else {
             btnPay.setOnClickListener(v->payment(booking.getId()));
         }
-
-
-
-
-
-
-
-
 
     }
 

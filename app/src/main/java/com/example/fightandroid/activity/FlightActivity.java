@@ -39,6 +39,11 @@ public class FlightActivity extends BaseActivity implements FlightItemClickListe
 
     }
 
+    @Override
+    public void initEvents() {
+        btnBack.setOnClickListener(v -> finish());
+    }
+
     private void getAllFlights(Long arrivalAirportId, Long departureAirportId, String departureDate) {
         Dialog dialog= Helper.createDialogLoad(this);
         dialog.show();
@@ -76,7 +81,7 @@ public class FlightActivity extends BaseActivity implements FlightItemClickListe
         btnBack=findViewById(R.id.btnBack);
         tvTitle=findViewById(R.id.tvTitle);
         rcvFlight.setLayoutManager(new LinearLayoutManager(this));
-        btnBack.setOnClickListener(v -> finish());
+
 
     }
 

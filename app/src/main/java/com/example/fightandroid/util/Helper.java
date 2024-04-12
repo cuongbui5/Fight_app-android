@@ -29,6 +29,10 @@ public class Helper {
 
     }
 
+    public static String removeSpace(String input) {
+        return input.replaceAll("\\s+", "");
+    }
+
 
     public static Dialog createDialogLoad(Context context) {
         Dialog dialog=new Dialog(context);

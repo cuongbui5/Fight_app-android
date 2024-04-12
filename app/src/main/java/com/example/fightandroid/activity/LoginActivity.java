@@ -33,8 +33,32 @@ public class LoginActivity extends BaseActivity {
     private EditText username,password;
 
 
+
+
     @Override
     public void setUp() {
+
+    }
+
+    @Override
+    public void initEvents() {
+        tvSignup.setOnClickListener(v -> {
+            Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
+            startActivity(intent);
+        });
+        btnLogin.setOnClickListener(v -> {
+            String u= username.getText().toString().trim();
+            String p= password.getText().toString().trim();
+            if(u.equals("") || p.equals("")){
+                Helper.showDialog("Không được để trống!",LoginActivity.this);
+                return;
+            }
+            LoginRequest loginRequest=new LoginRequest(u,p);
+            login(loginRequest);
+
+
+
+        });
 
     }
 
@@ -77,23 +101,7 @@ public class LoginActivity extends BaseActivity {
         tvSignup=findViewById(R.id.tvSignup);
         username=findViewById(R.id.editUsernameLogin);
         password=findViewById(R.id.editPasswordLogin);
-        tvSignup.setOnClickListener(v -> {
-            Intent intent=new Intent(LoginActivity.this,RegisterActivity.class);
-            startActivity(intent);
-        });
-        btnLogin.setOnClickListener(v -> {
-            String u= username.getText().toString().trim();
-            String p= password.getText().toString().trim();
-            if(u.equals("") || p.equals("")){
-                Helper.showDialog("Không được để trống!",LoginActivity.this);
-                return;
-            }
-            LoginRequest loginRequest=new LoginRequest(u,p);
-            login(loginRequest);
 
-
-
-        });
     }
 
     @Override

@@ -18,6 +18,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         loadUser();
         setContentView(getResourcesLayout());
         initComponents();
+        initEvents();
         setUp();
         getDataFromIntent();
         broadcastReceiverInternet = new BroadcastReceiverInternet();
@@ -25,6 +26,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         registerReceiver(broadcastReceiverInternet, filter);
         isReceiverRegistered=true;
     }
+
+
 
     @Override
     protected void onResume() {
@@ -58,7 +61,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
+
+
     public abstract void setUp();
+    public abstract void initEvents();
+
 
     public abstract void initComponents();
 

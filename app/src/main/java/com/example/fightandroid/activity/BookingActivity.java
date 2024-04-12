@@ -123,7 +123,7 @@ public class BookingActivity extends BaseActivity implements ContactInfoItemClic
             lastNameStr=lastName.getText().toString().trim();
             phoneStr=phone.getText().toString().trim();
             mailStr=mail.getText().toString().trim();
-            if(firstNameStr==""||lastNameStr==""||phoneStr==""||mailStr==""){
+            if(firstNameStr.equals("") || lastNameStr.equals("") || phoneStr.equals("") || mailStr.equals("")){
                 Helper.showDialog("Chưa nhập đầy đủ thông tin",BookingActivity.this);
                 return;
             }
@@ -217,6 +217,44 @@ public class BookingActivity extends BaseActivity implements ContactInfoItemClic
         tvTitle.setText("Thêm thông tin");
         ivAirlineBooking=findViewById(R.id.ivAirlineBooking);
 
+
+
+
+    }
+
+    @Override
+    public void getDataFromIntent() {
+        Intent intent=getIntent();
+        if(intent!=null){
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                fare=intent.getSerializableExtra("fare", Fare.class);
+                Flight flight=fare.getFlight();
+                tvAirlineNameBooking.setText(flight.getAirline().getName());
+                tvDurationBooking.setText(flight.getDuration()+" phút");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+                tvDepartureDateBooking.setText(LocalDateTime.parse(flight.getDepartureDate(),formatter).toLocalDate().toString());
+                tvArrivalDateBooking.setText(LocalDateTime.parse(flight.getArrivalDate(),formatter).toLocalDate().toString());
+                tvDepartureTimeBooking.setText(LocalDateTime.parse(flight.getDepartureDate(),formatter).toLocalTime().toString());
+                tvArrivalTimeBooking.setText(LocalDateTime.parse(flight.getArrivalDate(),formatter).toLocalTime().toString());
+                tvFareClassBooking.setText(fare.getFareClass());
+                tvArrivalAirportCityBooking.setText(flight.getArrivalAirport().getCity());
+                tvDepartureAirportCityBooking.setText(flight.getDepartureAirport().getCity());
+                tvPrice.setText("VND "+fare.getPrice());
+                Picasso.get().load(flight.getAirline().getLogoUrl()).into(ivAirlineBooking);
+            }
+        }
+
+    }
+
+
+
+    @Override
+    public void setUp() {
+
+    }
+
+    @Override
+    public void initEvents() {
         btnBack.setOnClickListener(v->finish());
 
         btnAddContactInfo.setOnClickListener(v -> {
@@ -250,36 +288,6 @@ public class BookingActivity extends BaseActivity implements ContactInfoItemClic
             booking(bookingRequest);
 
         });
-
-
-    }
-
-    @Override
-    public void getDataFromIntent() {
-        Intent intent=getIntent();
-        if(intent!=null){
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-                fare=intent.getSerializableExtra("fare", Fare.class);
-                Flight flight=fare.getFlight();
-                tvAirlineNameBooking.setText(flight.getAirline().getName());
-                tvDurationBooking.setText(flight.getDuration()+" phút");
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-                tvDepartureDateBooking.setText(LocalDateTime.parse(flight.getDepartureDate(),formatter).toLocalDate().toString());
-                tvArrivalDateBooking.setText(LocalDateTime.parse(flight.getArrivalDate(),formatter).toLocalDate().toString());
-                tvDepartureTimeBooking.setText(LocalDateTime.parse(flight.getDepartureDate(),formatter).toLocalTime().toString());
-                tvArrivalTimeBooking.setText(LocalDateTime.parse(flight.getArrivalDate(),formatter).toLocalTime().toString());
-                tvFareClassBooking.setText(fare.getFareClass());
-                tvArrivalAirportCityBooking.setText(flight.getArrivalAirport().getCity());
-                tvDepartureAirportCityBooking.setText(flight.getDepartureAirport().getCity());
-                tvPrice.setText("VND "+fare.getPrice());
-                Picasso.get().load(flight.getAirline().getLogoUrl()).into(ivAirlineBooking);
-            }
-        }
-
-    }
-
-    @Override
-    public void setUp() {
 
     }
 

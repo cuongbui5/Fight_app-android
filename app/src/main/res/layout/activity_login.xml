@@ -39,69 +39,73 @@
              >
 
              <ImageView
-                 android:layout_width="190dp"
-                 android:layout_height="150dp"
-                 android:background="@drawable/newlogo"
+                 android:layout_width="173dp"
+                 android:layout_height="137dp"
+                 android:layout_gravity="center"
 
-                 android:layout_gravity="center"/>
+                 android:background="@drawable/newlogo" />
 
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="Sign In"
-                 android:fontFamily="@font/manrope_light"
-                 android:textStyle="bold"
+                 android:fontFamily="@font/manrope_bold"
                  android:textSize="35dp"/>
+
              <TextView
-                 android:layout_width="wrap_content"
+                 android:layout_width="match_parent"
                  android:layout_height="wrap_content"
                  android:layout_marginTop="10dp"
-                 android:textSize="18dp"
                  android:fontFamily="@font/manrope_light"
+                 android:text="Hãy đặt ngay một chuyến du lịch để khám phá những điều thú vị nhé!"
                  android:textColor="@color/gray"
-                 android:text="Let's book a travel trip to explore interesting things!"/>
+                 android:textSize="16dp" />
+
              <EditText
                  android:id="@+id/editUsernameLogin"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
-                 android:textSize="18sp"
+                 android:textSize="16sp"
                  android:layout_marginTop="20dp"
-                 android:fontFamily="@font/manrope_light"
+                 android:fontFamily="@font/manrope_medium"
                  android:maxLines="1"
                  android:drawableStart="@drawable/ic_name"
                  android:drawableTint="@color/primary"
                  android:drawablePadding="10dp"
-                 android:hint="Username"/>
+                 android:hint="Tên tài khoản"/>
              <EditText
                  android:id="@+id/editPasswordLogin"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
-                 android:textSize="18sp"
+                 android:textSize="16sp"
                  android:layout_marginTop="20dp"
                  android:inputType="textPassword"
                  android:drawableStart="@drawable/ic_pw"
                  android:drawableTint="@color/primary"
                  android:drawablePadding="10dp"
-                 android:fontFamily="@font/manrope_light"
-                 android:hint="Password"/>
+                 android:fontFamily="@font/manrope_medium"
+                 android:hint="Mật khẩu"/>
              <LinearLayout
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_marginTop="20dp"
+
 
                  >
                  <TextView
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:fontFamily="@font/manrope_light"
-                     android:text="Don't have an account?"/>
+                     android:textSize="15sp"
+                     android:text="Chưa có tài khoản?"/>
                  <TextView
                      android:id="@+id/tvSignup"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
                      android:textColor="@color/primary"
-                     android:fontFamily="@font/manrope_light"
-                     android:text=" Sign up"/>
+                     android:fontFamily="@font/manrope_bold"
+                     android:textSize="15sp"
+                     android:text="Tạo tài khoản."/>
              </LinearLayout>
 
 
@@ -115,10 +119,10 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:background="@drawable/button_background"
-             android:fontFamily="@font/manrope_light"
+             android:fontFamily="@font/manrope_bold"
              android:paddingHorizontal="30dp"
              android:paddingVertical="10dp"
-             android:text="Log In"
+             android:text="Đăng Nhập"
              android:textColor="@color/white"
              android:layout_alignParentBottom="true"
 

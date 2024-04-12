@@ -37,71 +37,74 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sign Up"
-                    android:fontFamily="@font/manrope_light"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/manrope_bold"
                     android:textSize="35dp"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:textSize="18dp"
                     android:fontFamily="@font/manrope_light"
+                    android:text="Tạo tài khoản để có cơ hội đặt vé miễn phí!"
                     android:textColor="@color/gray"
-                    android:text="Let's book a travel!"/>
+                    android:textSize="16dp" />
                 <EditText
                     android:id="@+id/editUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="@font/manrope_light"
+                    android:fontFamily="@font/manrope_medium"
                     android:maxLines="1"
                     android:drawableStart="@drawable/ic_name"
                     android:drawableTint="@color/primary"
                     android:drawablePadding="10dp"
-                    android:hint="Username"/>
+                    android:hint="Tên tài khoản"/>
                 <EditText
                     android:id="@+id/editPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:layout_marginTop="20dp"
                     android:inputType="textPassword"
                     android:drawableStart="@drawable/ic_pw"
                     android:drawableTint="@color/primary"
                     android:drawablePadding="10dp"
-                    android:fontFamily="@font/manrope_light"
-                    android:hint="Password"/>
+                    android:fontFamily="@font/manrope_medium"
+                    android:hint="Mật khẩu"/>
                 <EditText
                     android:id="@+id/editPasswordConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:layout_marginTop="20dp"
                     android:inputType="textPassword"
-                    android:fontFamily="@font/manrope_light"
+                    android:fontFamily="@font/manrope_medium"
                     android:drawableStart="@drawable/ic_pw"
                     android:drawableTint="@color/primary"
                     android:drawablePadding="10dp"
-                    android:hint="Password Confirm"/>
+                    android:hint="Mật khẩu xác nhận"/>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+
 
                     >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/manrope_light"
-                        android:text="Do you have an account?"/>
+                        android:textSize="15sp"
+                        android:text="Đã có tài khoản?"/>
                     <TextView
                         android:id="@+id/tvSignin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/primary"
-                        android:fontFamily="@font/manrope_light"
-                        android:text=" Sign in"/>
+                        android:fontFamily="@font/manrope_bold"
+                        android:textSize="15sp"
+                        android:text="Đăng nhập."/>
                 </LinearLayout>
 
 
@@ -115,8 +118,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_background"
-                android:fontFamily="@font/manrope_light"
-                android:text="Sign up"
+                android:fontFamily="@font/manrope_bold"
+                android:text="Đăng Kí"
                 android:textColor="@color/white"
 
                 android:layout_alignParentBottom="true"

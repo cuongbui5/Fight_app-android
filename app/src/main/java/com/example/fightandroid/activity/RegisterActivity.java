@@ -29,8 +29,29 @@ public class RegisterActivity extends BaseActivity {
     private TextView tvSignIn;
     private Button btnRegister;
 
+
+
     @Override
     public void setUp() {
+
+    }
+
+    @Override
+    public void initEvents() {
+        tvSignIn.setOnClickListener(v -> finish());
+        btnRegister.setOnClickListener(v -> {
+            String u=username.getText().toString().trim();
+            String p=password.getText().toString().trim();
+            String pc=passwordConfirm.getText().toString().trim();
+            if(u.equals("")||p.equals("")||pc.equals("")){
+                Helper.showDialog("Không được để trống!",RegisterActivity.this);
+                return;
+            }
+            RegisterRequest registerRequest=new RegisterRequest(u,p,pc);
+            register(registerRequest);
+
+
+        });
 
     }
 
@@ -71,20 +92,7 @@ public class RegisterActivity extends BaseActivity {
         passwordConfirm=findViewById(R.id.editPasswordConfirm);
         btnRegister=findViewById(R.id.btnRegister);
         tvSignIn=findViewById(R.id.tvSignin);
-        tvSignIn.setOnClickListener(v -> finish());
-        btnRegister.setOnClickListener(v -> {
-            String u=username.getText().toString().trim();
-            String p=password.getText().toString().trim();
-            String pc=passwordConfirm.getText().toString().trim();
-            if(u.equals("")||p.equals("")||pc.equals("")){
-                Helper.showDialog("Không được để trống!",RegisterActivity.this);
-                return;
-            }
-            RegisterRequest registerRequest=new RegisterRequest(u,p,pc);
-            register(registerRequest);
 
-
-        });
 
     }
 
